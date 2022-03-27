@@ -45,4 +45,15 @@ h6 {
   font-weight: 400;
   padding: 12px 72px;
   border-radius: 3px !important;
+  
+  background: linear-gradient(
+    0deg,
+    rgba(0, 128, 182, 1) 0%,
+    rgba(0, 128, 182, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+.center .btn:hover {
+  background: rgb(0, 128, 182);
 }

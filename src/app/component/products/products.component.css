@@ -9,6 +9,20 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0.25rem;
 }
+
+.btn {
+  background: linear-gradient(
+    0deg,
+    rgba(0, 128, 182, 1) 0%,
+    rgba(0, 128, 182, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+.btn:hover {
+  background: rgb(0, 128, 182);
+}
+
 .item img {
   width: 64px;
 }
@@ -19,7 +33,7 @@
 }
 
 .item a:hover {
-  color: blue;
+  color: rgb(0, 128, 182);
 }
 
 .card {

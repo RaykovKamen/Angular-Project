@@ -15,4 +15,12 @@ export class ApiService {
       })
     );
   }
+
+  getUser() {
+    return this.http.get<any>('https://fakestoreapi.com/users').pipe(
+      map((res: any) => {
+        return res;
+      })
+    );
+  }
 }

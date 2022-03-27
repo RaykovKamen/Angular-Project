@@ -47,7 +47,7 @@
         <img src="{{ item.image }}" alt="" />
         <h5
           style="
-            white-space: normal;
+            white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             max-width: 100ch;
@@ -65,8 +65,8 @@
         >
           {{ item.description }}
         </p>
-        <p><strong>Price:</strong>${{ item.price }}</p>
-        <button class="btn btn-primary" (click)="addToCart(item)">
+        <p><strong>Price:</strong> €{{ item.price }}</p>
+        <button class="btn" (click)="addToCart(item)">
           Add to cart
         </button>
       </div>
