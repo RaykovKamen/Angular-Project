@@ -5,7 +5,7 @@
         <i style="font-size: 40px" class="fas fa-shipping-fast">&nbsp; </i>
       </button>
 
-      <strong style="font-size: 30px">Flipkart</strong>
+      <strong style="font-size: 30px">SHOP</strong>
       <div class="form-group">
         <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="search products" />
       </div>
@@ -24,8 +24,14 @@
         </ul>
       </div>
       <div class="mini-navbar" *ngIf="isLogged">
-        <div>HELLO, [username]@localdomain.com</div>
-        <a routerLink="/products" (click)="logoutHandler()">Logout</a>
+        <ul>
+          <li>
+            <a  href="#">John's Profile</a>
+          </li>
+          <li>
+            <a href="#" (click)="logoutHandler()">Logout</a>
+          </li>
+        </ul>
       </div>
     </div>
 
