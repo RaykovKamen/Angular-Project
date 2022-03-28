@@ -1,21 +1,23 @@
 <div class="welcome">
-    <h3>Welcome!</h3>
-    <p>Shop is a place, where you can search products, add them to your cart, and buy them, which
-        in order to do so you must be registered.</p>
-    <div class="logged" *ngIf="!isLogged">
-        <ul>
-            <li>
-                <a routerLink="/login">
-                    <i class="fas fa-sign-in-alt"></i>
-                    Login
-                </a>
-            </li>
-            <li>
-                <a routerLink="/register">
-                    <i class="fas fa-user-plus"></i>
-                    Register
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>  
+  <h3>Welcome!</h3>
+  <p>
+    Shop is a app, where you can search products, add them to your cart, and buy
+    them, which in order to do so you must be registered!
+  </p>
+  <div class="logged" *ngIf="!isLogged">
+    <ul>
+      <li>
+        <a routerLink="/login">
+          <i class="fas fa-sign-in-alt"></i>
+          Login
+        </a>
+      </li>
+      <li>
+        <a routerLink="/register">
+          <i class="fas fa-user-plus"></i>
+          Register
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
