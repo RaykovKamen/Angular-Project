@@ -9,6 +9,7 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class HeaderComponent implements OnInit {
   public totalItem: number = 0;
+  public searchTerm !: string;
   get isLogged(): boolean {
     return this.userService.isLogged;
   }
@@ -26,5 +27,10 @@ export class HeaderComponent implements OnInit {
 
   logoutHandler(): void {
     this.userService.logout();
+  }
+
+  search(event:any){
+    this.searchTerm = (event.target as HTMLInputElement).value;
+    this.cartService.search.next(this.searchTerm);
   }
 }
