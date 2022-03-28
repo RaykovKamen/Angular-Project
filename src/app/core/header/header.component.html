@@ -1,0 +1,49 @@
+<header>
+  <div class="navbar navbar-dark shadow-sm">
+    <div class="navbar-brand align-item-center d-flex">
+      <button routerLink="products" class="btn">
+        <i style="font-size: 40px" class="fas fa-shipping-fast">&nbsp; </i>
+      </button>
+
+      <strong style="font-size: 30px">SHOP</strong>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="searchTerm"
+          (keyup)="search($event)"
+          placeholder="search products"
+        />
+      </div>
+      <span class="fas fa-search search-icon"></span>
+    </div>
+
+    <div class="mini-navbar-nowrap">
+      <div class="mini-navbar" *ngIf="!isLogged">
+        <ul>
+          <li>
+            <a routerLink="/login">Login</a>
+          </li>
+          <li>
+            <a routerLink="/register">Register</a>
+          </li>
+        </ul>
+      </div>
+      <div class="mini-navbar" *ngIf="isLogged">
+        <ul>
+          <li>
+            <a routerLink="/profile">John's Profile</a>
+          </li>
+          <li>
+            <a href="#" (click)="logoutHandler()">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <button routerLink="cart" class="btn">
+      <i style="font-size: 30px" class="fas fa-cart-plus"></i>
+      <div style="font-size: 10px" class="badge bg-danger">{{ totalItem }}</div>
+    </button>
+  </div>
+</header>

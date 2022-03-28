@@ -1,44 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './component/header/header.component';
-import { FooterComponent } from './component/footer/footer.component';
-import { UserService } from './service/user.service';
-import { storageServiceProvider } from './service/storage.service';
-import { CartComponent } from './component/cart/cart.component';
-import { ProductsComponent } from './component/products/products.component';
+import { HeaderComponent } from './core/header/header.component';
+import { FooterComponent } from './core/footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
-import { LoginComponent } from './component/auth/login/login.component';
-import { FilterPipe } from './shared/filter.pipe';
+import { CoreModule } from './core/core.module';
+import { FeatureModule } from './feature/feature.module';
+import { SharedModule } from './shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    CartComponent,
-    ProductsComponent,
-    FooterComponent,
-    LoginComponent,
-    FilterPipe,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
+    RouterModule,
+    CoreModule.forRoot(),
+    AppRoutingModule,
+    FeatureModule,
+    SharedModule,
   ],
-  providers: [
-    UserService,
-    storageServiceProvider
-  ],
-  bootstrap: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent
-  ]
+  providers: [],
+  bootstrap: [AppComponent, HeaderComponent, FooterComponent],
 })
-export class AppModule { }
+export class AppModule {}
