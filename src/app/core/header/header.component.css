@@ -11,7 +11,7 @@ strong {
 .search-icon {
   position: absolute;
   z-index: 10;
-  right: 50%;
+  right: 45%;
   top: 30px;
   color: rgb(0, 128, 182);
 }
@@ -68,12 +68,11 @@ nav {
   font-size: 1.3em;
   color: white;
   padding-bottom: 0;
+  
 }
 
 .logo-wrap {
   font-family: "Parisienne", cursive;
-  letter-spacing: 0.5em;
-  margin: 0.5em 0;
 }
 
 .mini-navbar-wrap {

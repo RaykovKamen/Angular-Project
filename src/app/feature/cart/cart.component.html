@@ -44,9 +44,9 @@
                   Shop More
                 </button>
               </td>
-              <td><button class="btn btn-success">Checkout</button></td>
+              <td><button (click)="emptyCart()" class="btn btn-success" routerLink="/">Checkout</button></td>
               <td>
-                <strong>Grand Total : €{{ grandTotal }}</strong>
+                <strong>Grand Total : €{{ grandTotal.toFixed(2) }}</strong>
               </td>
             </tr>
           </tbody>

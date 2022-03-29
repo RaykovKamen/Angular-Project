@@ -1,10 +1,10 @@
-<div class="welcome">
+<div class="welcome" *ngIf="!isLogged">
   <h3>Welcome!</h3>
   <p>
     Shop is a app, where you can search products, add them to your cart, and buy
     them, which in order to do so you must be registered!
   </p>
-  <div class="logged" *ngIf="!isLogged">
+  <div class="logged" >
     <ul>
       <li>
         <a routerLink="/login">
@@ -21,3 +21,11 @@
     </ul>
   </div>
 </div>
+
+<div class="success" *ngIf="isLogged">
+  <h3>Success!</h3>
+  <p>
+    You successfully both the products!
+  </p>
+</div>
+

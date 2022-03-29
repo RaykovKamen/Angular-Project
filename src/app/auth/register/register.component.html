@@ -7,17 +7,41 @@
           <h6>Register Yourself!</h6>
         </div>
         <form>
-          <form>
+          <form
+            class="register"
+            [formGroup]="registerFormGroup"
+            (ngSubmit)="handleRegister()"
+          >
             <div class="mb-3">
-              <label for="exampleInputName1" class="form-label"
-                >Full Name</label
-              >
+              <label for="exampleInputName1" class="form-label">Username</label>
               <input
                 type="text"
                 class="form-control"
                 id="exampleInputName1"
                 placeholder="Johny"
+                formControlName="username"
               />
+              <ng-container
+                *ngIf="
+                  registerFormGroup.controls['username'].touched &&
+                  registerFormGroup.controls['username'].invalid
+                "
+              >
+                <p
+                  *ngIf="registerFormGroup.controls['username'].errors.required"
+                  class="error"
+                >
+                  Username is required!
+                </p>
+                <p
+                  *ngIf="
+                    registerFormGroup.controls['username'].errors.minlength
+                  "
+                  class="error"
+                >
+                  Username must be at least 5 characters!
+                </p>
+              </ng-container>
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label"
@@ -29,45 +53,103 @@
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
                 placeholder="john.doe@gmail.com"
+                formControlName="email"
               />
               <div id="emailHelp" class="form-text">
                 We'll never share your email with anyone else.
               </div>
+              <ng-container
+                *ngIf="
+                  registerFormGroup.controls['email'].touched &&
+                  registerFormGroup.controls['email'].invalid
+                "
+              >
+                <p
+                  *ngIf="registerFormGroup.controls['email'].errors.required"
+                  class="error"
+                >
+                  Email is required!
+                </p>
+                <p
+                  *ngIf="registerFormGroup.controls['email'].errors.email"
+                  class="error"
+                >
+                  Email is not valid!
+                </p>
+              </ng-container>
             </div>
             <div class="mb-3">
               <label for="exampleInputMobileNumber1" class="form-label"
                 >Mobile Number</label
               >
               <input
-                type="number"
+                type="text"
                 class="form-control"
                 id="exampleInputMobileNumber1"
                 placeholder="885 888 888"
+                formControlName="tel"
               />
             </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label"
-                >Password</label
-              >
-              <input
-                type="password"
-                class="form-control"
-                id="exampleInputPassword1"
-                placeholder="******"
-              />
+            <div formGroupName="passwords">
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label"
+                  >Password</label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                  placeholder="******"
+                  formControlName="password"
+                />
+                <ng-container
+                  *ngIf="
+                    passwordsGroup.controls['password'].touched &&
+                    passwordsGroup.controls['password'].invalid
+                  "
+                >
+                  <p
+                    *ngIf="passwordsGroup.controls['password'].errors.required"
+                    class="error"
+                  >
+                    Password is required!
+                  </p>
+                  <p
+                    *ngIf="passwordsGroup.controls['password'].errors.minlength"
+                    class="error"
+                  >
+                    Password must be at least 5 characters!
+                  </p>
+                </ng-container>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputRePassword1" class="form-label"
+                  >RePassword</label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="exampleInputRePassword1"
+                  placeholder="******"
+                  formControlName="rePassword"
+                />
+                <ng-container
+                  *ngIf="
+                    passwordsGroup.controls['rePassword'].touched &&
+                    passwordsGroup.controls['rePassword'].invalid
+                  "
+                >
+                  <p class="error">Repeat Password does not match password!</p></ng-container
+                >
+              </div>
             </div>
-            <div class="mb-3">
-              <label for="exampleInputRePassword1" class="form-label"
-                >RePassword</label
-              >
-              <input
-                type="rePassword"
-                class="form-control"
-                id="exampleInputRePassword1"
-                placeholder="******"
-              />
-            </div>
-            <button type="submit" class="btn btn-primary mb-2">Register</button>
+            <button
+              [disabled]="registerFormGroup.invalid"
+              type="submit"
+              class="btn btn-primary mb-2"
+            >
+              Register
+            </button>
             <a style="color: #fff; margin-top: 10px" href="/login"
               >Alredy registered? Click to login!</a
             >

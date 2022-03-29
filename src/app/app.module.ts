@@ -10,6 +10,8 @@ import { CoreModule } from './core/core.module';
 import { FeatureModule } from './feature/feature.module';
 import { SharedModule } from './shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +23,7 @@ import { RouterModule } from '@angular/router';
     AppRoutingModule,
     FeatureModule,
     SharedModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, FooterComponent],

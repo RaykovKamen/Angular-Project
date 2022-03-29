@@ -8,16 +8,10 @@ import { map } from 'rxjs/operators';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  getProduct() {
-    return this.http.get<any>('https://fakestoreapi.com/products').pipe(
-      map((res: any) => {
-        return res;
-      })
-    );
-  }
+  //'https://fakestoreapi.com/products'
 
-  getUser() {
-    return this.http.get<any>('https://fakestoreapi.com/users').pipe(
+  getProduct() {
+    return this.http.get<any>('https://mocki.io/v1/4cf7c399-ba7e-4d22-89e7-ab85b0b5ea0c').pipe(
       map((res: any) => {
         return res;
       })

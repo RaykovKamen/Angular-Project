@@ -22,3 +22,7 @@ h6 {
 label {
   color: #fff;
 }
+
+.error {
+  color: red;
+}
