@@ -27,12 +27,15 @@
               <td style="width: 12%">{{ item.quantity }}</td>
               <td style="width: 12%">€{{ item.total }}</td>
               <td>
-                <button (click)="removeItem(item)" class="btn btn-danger">
+                <button *ngIf="isLogged" (click)="removeItem(item)" class="btn btn-danger">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+                <button *ngIf="!isLogged" routerLink="/products" (click)="removeItem(item)" class="btn btn-danger">
                   <i class="fas fa-trash-alt"></i>
                 </button>
               </td>
             </tr>
-            <tr>
+            <tr *ngIf="isLogged">
               <td colspan="4"></td>
               <td>
                 <button (click)="emptyCart()" class="btn btn-danger">
@@ -44,7 +47,15 @@
                   Shop More
                 </button>
               </td>
-              <td><button (click)="emptyCart()" class="btn btn-success" routerLink="/">Checkout</button></td>
+              <td>
+                <button
+                  (click)="emptyCart()"
+                  class="btn btn-success"
+                  routerLink="/"
+                >
+                  Checkout
+                </button>
+              </td>
               <td>
                 <strong>Grand Total : €{{ grandTotal.toFixed(2) }}</strong>
               </td>

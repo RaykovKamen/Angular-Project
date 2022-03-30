@@ -46,7 +46,12 @@
       *ngFor="let item of filterCategory | filter: searchKey:'title'"
     >
       <div class="card col-md-3">
-        <img src="{{ item.image }}" alt="" />
+        <img
+          routerLink="/cart"
+          (click)="addToCart(item)"
+          src="{{ item.image }}"
+          alt=""
+        />
         <h5
           style="
             white-space: nowrap;

@@ -23,7 +23,7 @@ import { AuthModule } from './auth/auth.module';
     AppRoutingModule,
     FeatureModule,
     SharedModule,
-    AuthModule
+    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, FooterComponent],

@@ -47,7 +47,6 @@
 
 .profile button {
   color: white;
-  background-color: rgb(0, 212, 255);
   border: none;
   border-radius: 0.3em;
   padding: 0.6em 1.2em;
@@ -75,4 +74,12 @@
 
 .green-button {
   background-color: green;
+}
+
+.edit-button {
+  background-color: rgb(0, 212, 255);
+}
+
+.input-error {
+  border-left: 3px solid red;
 }

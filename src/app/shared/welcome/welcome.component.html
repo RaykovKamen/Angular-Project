@@ -1,15 +1,22 @@
 <div class="welcome" *ngIf="!isLogged">
   <h3>Welcome!</h3>
   <p>
-    Shop is a app, where you can search products, add them to your cart, and buy
-    them, which in order to do so you must be registered!
+    It's a simple Shop app where you can search for products, browse different
+    categories, add or remove items from your cart, register and edit your
+    profile.
   </p>
-  <div class="logged" >
+  <div class="logged">
     <ul>
       <li>
         <a routerLink="/login">
           <i class="fas fa-sign-in-alt"></i>
           Login
+        </a>
+      </li>
+      <li>
+        <a routerLink="/products">
+          <i class="fas fa-search search-icon"></i>
+          Browse
         </a>
       </li>
       <li>
@@ -24,8 +31,5 @@
 
 <div class="success" *ngIf="isLogged">
   <h3>Success!</h3>
-  <p>
-    You successfully both the products!
-  </p>
+  <p>You successfully both the products!</p>
 </div>
-

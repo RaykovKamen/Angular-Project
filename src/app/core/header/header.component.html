@@ -32,7 +32,7 @@
       <div class="mini-navbar" *ngIf="isLogged">
         <ul>
           <li>
-            <a routerLink="/profile">John's Profile</a>
+            <a routerLink="/profile">{{ currentUser.username }}</a>
           </li>
           <li>
             <a href="#" (click)="logoutHandler()">Logout</a>
@@ -43,7 +43,7 @@
 
     <button routerLink="cart" class="btn">
       <i style="font-size: 30px" class="fas fa-cart-plus"></i>
-      <div style="font-size: 10px" class="badge bg-danger">{{ totalItem }}</div>
+      <div *ngIf="isLogged" style="font-size: 10px" class="badge bg-danger">{{ totalItem }}</div>
     </button>
   </div>
 </header>

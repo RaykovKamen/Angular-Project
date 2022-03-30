@@ -7,8 +7,12 @@ interface IStorage {
 }
 
 export class StorageService implements IStorage {
-  setItem<T>(key, item): T { return item; }
-  getItem<T>(key): T { return null; }
+  setItem<T>(key, item): T {
+    return item;
+  }
+  getItem<T>(key): T {
+    return null;
+  }
 }
 
 export function storageFactory(platformId: string): any {
@@ -24,9 +28,8 @@ export function storageFactory(platformId: string): any {
 export const storageServiceProvider: Provider = {
   provide: StorageService,
   useFactory: storageFactory,
-  deps: [PLATFORM_ID]
+  deps: [PLATFORM_ID],
 };
-
 
 export class BrowserStorage {
   localStorage = localStorage;
@@ -40,7 +43,9 @@ export class BrowserStorage {
   getItem<T>(key: string): T {
     let item;
     const tmp = this.localStorage.getItem(key);
-    if (!tmp) { return null; }
+    if (!tmp) {
+      return null;
+    }
     try {
       item = JSON.parse(tmp);
     } catch {
@@ -51,7 +56,6 @@ export class BrowserStorage {
 }
 
 export class ServerStorage {
-
   localStorage = {
     data: {},
     setItem<T>(key: string, item: T): void {
@@ -59,7 +63,7 @@ export class ServerStorage {
     },
     getItem<T>(key: string): T {
       return this.data[key];
-    }
+    },
   };
 
   setItem<T>(key: string, item: T): T {
@@ -70,7 +74,9 @@ export class ServerStorage {
   getItem<T>(key: string): T {
     let item;
     const tmp = this.localStorage.getItem(key) as any;
-    if (!tmp) { return null; }
+    if (!tmp) {
+      return null;
+    }
     try {
       item = JSON.parse(tmp);
     } catch {

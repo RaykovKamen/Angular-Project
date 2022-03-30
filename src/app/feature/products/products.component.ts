@@ -12,9 +12,11 @@ export class ProductsComponent implements OnInit {
   public productList: any;
   public filterCategory: any;
   searchKey: string = '';
+
   get isLogged(): boolean {
     return this.userService.isLogged;
   }
+
   constructor(
     private api: ApiService,
     private cartService: CartService,
@@ -34,16 +36,17 @@ export class ProductsComponent implements OnInit {
         }
         Object.assign(a, { quantity: 1, total: a.price });
       });
-      console.log(this.productList);
     });
 
     this.cartService.search.subscribe((val: any) => {
       this.searchKey = val;
     });
   }
+
   addToCart(item: any) {
     this.cartService.addToCart(item);
   }
+
   filter(category: string) {
     this.filterCategory = this.productList.filter((a: any) => {
       if (a.category == category || category == '') {

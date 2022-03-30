@@ -4,10 +4,11 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AppRoutingModule } from '../app-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EmailValidatorDirective } from './email-validator-directive';
 
 @NgModule({
-  declarations: [RegisterComponent, LoginComponent, ProfileComponent],
-  imports: [CommonModule, ReactiveFormsModule, AppRoutingModule],
+  declarations: [RegisterComponent, LoginComponent, ProfileComponent, EmailValidatorDirective],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, AppRoutingModule],
 })
 export class AuthModule {}
