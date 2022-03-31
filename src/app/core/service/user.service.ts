@@ -12,6 +12,12 @@ export interface CreateUserDto {
   tel?: string;
 }
 
+export interface EditUserDto {
+  username: string;
+  email: string;
+  tel?: string;
+}
+
 @Injectable()
 export class UserService {
   currentUser: IUser;
@@ -46,6 +52,14 @@ export class UserService {
   register$(userData: CreateUserDto): Observable<IUser> {
     return this.httpClient.post<IUser>(
       `${environment.apiUrl}/register`,
+      userData,
+      { withCredentials: true }
+    );
+  }
+
+  updateProfile(userData: EditUserDto): Observable<IUser> {
+    return this.httpClient.put<IUser>(
+      `${environment.apiUrl}/users/profile`,
       userData,
       { withCredentials: true }
     );

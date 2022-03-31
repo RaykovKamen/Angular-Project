@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IUser } from 'src/app/core/interfaces';
-import { UserService } from 'src/app/core/service/user.service';
+import { EditUserDto, UserService } from 'src/app/core/service/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -42,6 +42,20 @@ export class ProfileComponent implements OnInit {
   }
 
   updateProfile(): void {
-    this.isInEditMode = false;
+    const { username, email, tel } = this.editProfileForm.value;
+
+    const body: EditUserDto = {
+      username: username,
+      email: email,
+    };
+    if (tel) {
+      body.tel = tel;
+    }
+
+    this.userService.updateProfile(body).subscribe({
+      next: () => {
+        this.isInEditMode = false;
+      },
+    });
   }
 }
