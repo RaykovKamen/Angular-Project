@@ -10,7 +10,6 @@ import { UserService } from 'src/app/core/service/user.service';
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-
   @ViewChild('editProfileForm') editProfileForm: NgForm;
 
   currentUser: IUser;
@@ -26,8 +25,8 @@ export class ProfileComponent implements OnInit {
       },
       error: () => {
         this.router.navigate(['/login']);
-      }
-    })
+      },
+    });
   }
 
   enterEditMode(): void {
@@ -38,7 +37,7 @@ export class ProfileComponent implements OnInit {
         email: this.currentUser.email,
         username: this.currentUser.username,
         tel: this.currentUser.tel,
-      })
+      });
     });
   }
 

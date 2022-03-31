@@ -10,28 +10,33 @@
               <th>Product Image</th>
               <th>Description</th>
               <th>Price</th>
-              <th>Quantity</th>
-              <th>Total</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let item of products; let i = index">
               <td>{{ i + 1 }}</td>
-              <td>{{ item.title }}</td>
+              <td style="width: 14%">{{ item.title }}</td>
               <td>
                 <img style="width: 120px" src="{{ item.image }}" alt="" />
               </td>
-              <td style="width: 25%">{{ item.description }}</td>
+              <td style="width: 50%">{{ item.description }}</td>
               <td style="width: 12%">€{{ item.price }}</td>
-              <td style="width: 12%">{{ item.quantity }}</td>
-              <td style="width: 12%">€{{ item.total }}</td>
-              <td>
-                <button *ngIf="isLogged" (click)="removeItem(item)" class="btn btn-danger">
+              <td style="width: 12%">
+                <button
+                  *ngIf="isLogged"
+                  (click)="removeItem(item)"
+                  class="btn btn-danger"
+                >
                   <i class="fas fa-trash-alt"></i>
                 </button>
-                <button *ngIf="!isLogged" routerLink="/products" (click)="removeItem(item)" class="btn btn-danger">
-                  <i class="fas fa-trash-alt"></i>
+                <button
+                  *ngIf="!isLogged"
+                  routerLink="/products"
+                  (click)="removeItem(item)"
+                  class="btn btn-primary"
+                >
+                  <i class="fas fa-shipping-fast"> Go back</i>
                 </button>
               </td>
             </tr>
@@ -56,7 +61,7 @@
                   Checkout
                 </button>
               </td>
-              <td>
+              <td style="width: 12%">
                 <strong>Grand Total : €{{ grandTotal.toFixed(2) }}</strong>
               </td>
             </tr>
@@ -78,8 +83,17 @@
         alt=""
       />
       <h4>Your cart is empty!</h4>
-      <h6>Add item to it now</h6>
-      <button routerLink="/products" class="btn btn-primary">Shop Now</button>
+      <h6 *ngIf="!isLogged">Login to add items to it!</h6>
+      <h6 *ngIf="isLogged">Add items to it!</h6>
+      <button *ngIf="!isLogged" routerLink="/login" class="btn btn-primary">
+        Login Now
+      </button>
+      <button *ngIf="!isLogged" routerLink="/register" class="btn btn-primary">
+        Register Now
+      </button>
+      <button *ngIf="isLogged" routerLink="/products" class="btn btn-primary">
+        Shop Now
+      </button>
     </div>
   </div>
 </ng-container>

@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
-    private userService: UserService
+    private userService: UserService,
   ) {}
 
   ngOnInit(): void {
@@ -38,5 +38,9 @@ export class HeaderComponent implements OnInit {
   search(event: any) {
     this.searchTerm = (event.target as HTMLInputElement).value;
     this.cartService.search.next(this.searchTerm);
+  }
+
+  emptyCart() {
+    this.cartService.removeAllCart();
   }
 }
