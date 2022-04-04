@@ -9,7 +9,8 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   //'https://fakestoreapi.com/products'
-  //original api is not stable so I am using Mock Api to copy it
+  //Original api is not stable so I am using Mock Api to copy it!
+  //'https://mocki.io/v1/4cf7c399-ba7e-4d22-89e7-ab85b0b5ea0c'
 
   getProduct() {
     return this.http
