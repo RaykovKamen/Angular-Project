@@ -1,6 +1,7 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/header/header.component';
@@ -9,7 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { FeatureModule } from './feature/feature.module';
 import { SharedModule } from './shared/shared.module';
-import { RouterModule } from '@angular/router';
 import { AuthModule } from './auth/auth.module';
 import { AuthService } from './core/service/auth.service';
 

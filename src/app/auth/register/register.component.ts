@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/service/auth.service';
+import { MessageBusService, MessageType } from 'src/app/core/service/message-bus.service';
 import { CreateUserDto } from 'src/app/core/service/user.service';
 import { emailValidator, passwordMatch } from '../util';
 
@@ -41,7 +42,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private messageBus: MessageBusService
   ) {}
 
   ngOnInit(): void {}
@@ -60,6 +62,11 @@ export class RegisterComponent implements OnInit {
 
     this.authService.register$(body).subscribe(() => {
       this.router.navigate(['/login']);
+    });
+
+    this.messageBus.notifyForMessage({
+      text: 'User successfuly registered!',
+      type: MessageType.Success,
     });
   }
 }

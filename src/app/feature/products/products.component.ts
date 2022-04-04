@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { ApiService } from 'src/app/core/service/api.service';
 import { AuthService } from 'src/app/core/service/auth.service';
 import { CartService } from 'src/app/core/service/cart.service';
-import { UserService } from 'src/app/core/service/user.service';
 
 @Component({
   selector: 'app-products',

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { AuthService } from 'src/app/core/service/auth.service';
 import { CartService } from 'src/app/core/service/cart.service';
-import { UserService } from 'src/app/core/service/user.service';
 
 @Component({
   selector: 'app-cart',

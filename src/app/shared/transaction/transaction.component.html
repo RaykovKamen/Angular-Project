@@ -1,10 +1,24 @@
-<div class="success">
-  <h3>Success!</h3>
-  <p>You successfully both the product/s!</p>
-  <ul>
-    <a routerLink="/products">
-      <i class="fas fa-search search-icon"></i>
-      Shop More
-    </a>
-  </ul>
-</div>
+<ng-container *ngIf="products.length != 0">
+  <div class="success">
+    <h3>Confirm!</h3>
+    <p>Confirm your order!</p>
+    <ul>
+      <a routerLink="/products" (click)="emptyCart()">
+        <i class="fas fa-search search-icon"></i>
+        Confirm
+      </a>
+    </ul>
+  </div>
+</ng-container>
+<ng-container *ngIf="products.length == 0">
+  <div class="success">
+    <h3>Failed!</h3>
+    <p>Transaction failed you were not charged!</p>
+    <ul>
+      <a routerLink="/products">
+        <i class="fas fa-search search-icon"></i>
+        Shop More
+      </a>
+    </ul>
+  </div>
+</ng-container>
