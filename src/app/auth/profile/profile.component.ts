@@ -2,6 +2,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IUser } from 'src/app/core/interfaces';
+import {
+  MessageBusService,
+  MessageType,
+} from 'src/app/core/service/message-bus.service';
 import { EditUserDto, UserService } from 'src/app/core/service/user.service';
 
 @Component({
@@ -16,7 +20,11 @@ export class ProfileComponent implements OnInit {
 
   isInEditMode: boolean = false;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private messageBus: MessageBusService
+  ) {}
 
   ngOnInit(): void {
     this.userService.getProfile$().subscribe({
@@ -56,6 +64,11 @@ export class ProfileComponent implements OnInit {
       next: () => {
         this.isInEditMode = false;
       },
+    });
+
+    this.messageBus.notifyForMessage({
+      text: 'User successfuly updated!',
+      type: MessageType.Success,
     });
   }
 }

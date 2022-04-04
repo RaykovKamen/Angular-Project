@@ -24,23 +24,23 @@
               <td style="width: 12%">€{{ item.price }}</td>
               <td style="width: 12%">
                 <button
-                  *ngIf="isLogged"
+                  *ngIf="isLoggedIn$ | async"
                   (click)="removeItem(item)"
                   class="btn btn-danger"
                 >
                   <i class="fas fa-trash-alt"></i>
                 </button>
                 <button
-                  *ngIf="!isLogged"
+                  *ngIf="!(isLoggedIn$ | async)"
                   routerLink="/products"
-                  (click)="removeItem(item)"
+                  (click)="emptyCart()"
                   class="btn btn-primary"
                 >
                   <i class="fas fa-shipping-fast"> Go back</i>
                 </button>
               </td>
             </tr>
-            <tr *ngIf="isLogged">
+            <tr *ngIf="isLoggedIn$ | async">
               <td colspan="4"></td>
               <td>
                 <button (click)="emptyCart()" class="btn btn-danger">
@@ -56,13 +56,27 @@
                 <button
                   (click)="emptyCart()"
                   class="btn btn-success"
-                  routerLink="/"
+                  routerLink="/transaction"
                 >
                   Checkout
                 </button>
               </td>
               <td style="width: 12%">
                 <strong>Grand Total : €{{ grandTotal.toFixed(2) }}</strong>
+              </td>
+            </tr>
+            <tr *ngIf="!(isLoggedIn$ | async)">
+              <td colspan="1"></td>
+              <strong style="width: 12%">Login to add to cart</strong>
+              <td>
+                <button routerLink="/login" class="btn btn-primary">
+                  Login
+                </button>
+              </td>
+              <td>
+                <button routerLink="/register" class="btn btn-primary">
+                  Register
+                </button>
               </td>
             </tr>
           </tbody>
@@ -83,15 +97,27 @@
         alt=""
       />
       <h4>Your cart is empty!</h4>
-      <h6 *ngIf="!isLogged">Login to add items to it!</h6>
-      <h6 *ngIf="isLogged">Add items to it!</h6>
-      <button *ngIf="!isLogged" routerLink="/login" class="btn btn-primary">
+      <h6 *ngIf="!(isLoggedIn$ | async)">Login to add items to it!</h6>
+      <h6 *ngIf="isLoggedIn$ | async">Add items to it!</h6>
+      <button
+        *ngIf="!(isLoggedIn$ | async)"
+        routerLink="/login"
+        class="btn btn-primary"
+      >
         Login Now
       </button>
-      <button *ngIf="!isLogged" routerLink="/register" class="btn btn-primary">
+      <button
+        *ngIf="!(isLoggedIn$ | async)"
+        routerLink="/register"
+        class="btn btn-primary"
+      >
         Register Now
       </button>
-      <button *ngIf="isLogged" routerLink="/products" class="btn btn-primary">
+      <button
+        *ngIf="isLoggedIn$ | async"
+        routerLink="/products"
+        class="btn btn-primary"
+      >
         Shop Now
       </button>
     </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ApiService } from 'src/app/core/service/api.service';
+import { AuthService } from 'src/app/core/service/auth.service';
 import { CartService } from 'src/app/core/service/cart.service';
 import { UserService } from 'src/app/core/service/user.service';
 
@@ -13,14 +15,12 @@ export class ProductsComponent implements OnInit {
   public filterCategory: any;
   searchKey: string = '';
 
-  get isLogged(): boolean {
-    return this.userService.isLogged;
-  }
+  isLoggedIn$: Observable<boolean> = this.authService.isLoggedIn$;
 
   constructor(
     private api: ApiService,
     private cartService: CartService,
-    private userService: UserService
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {

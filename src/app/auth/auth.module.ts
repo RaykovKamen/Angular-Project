@@ -8,7 +8,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmailValidatorDirective } from './email-validator-directive';
 
 @NgModule({
-  declarations: [RegisterComponent, LoginComponent, ProfileComponent, EmailValidatorDirective],
+  declarations: [
+    RegisterComponent,
+    LoginComponent,
+    ProfileComponent,
+    EmailValidatorDirective,
+  ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, AppRoutingModule],
 })
 export class AuthModule {}

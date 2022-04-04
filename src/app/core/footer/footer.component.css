@@ -16,9 +16,9 @@ a {
   color: blue;
 }
 
-footer{
-  position:fixed;
-  bottom:0px;
-  background-color:pink;
-  width:100%;
-  }
+footer {
+  position: fixed;
+  bottom: 0px;
+  background-color: pink;
+  width: 100%;
+}

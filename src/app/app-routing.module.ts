@@ -6,6 +6,7 @@ import { AuthGuard } from './core/guards/auth.guard';
 import { CartComponent } from './feature/cart/cart.component';
 import { PageNotFoundPageComponent } from './feature/page-not-found-page/page-not-found-page.component';
 import { ProductsComponent } from './feature/products/products.component';
+import { TransactionComponent } from './shared/transaction/transaction.component';
 import { WelcomeComponent } from './shared/welcome/welcome.component';
 
 const routes: Routes = [
@@ -15,6 +16,11 @@ const routes: Routes = [
   { path: 'products', component: ProductsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'cart', component: CartComponent },
+  {
+    path: 'transaction',
+    canActivate: [AuthGuard],
+    component: TransactionComponent,
+  },
   { path: 'profile', canActivate: [AuthGuard], component: ProfileComponent },
   { path: '**', component: PageNotFoundPageComponent },
 ];

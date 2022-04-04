@@ -1,11 +1,11 @@
 <header>
   <div class="navbar navbar-dark shadow-sm">
     <div class="navbar-brand align-item-center d-flex">
-      <button *ngIf="isLogged" routerLink="products" class="btn">
+      <button *ngIf="isLoggedIn$ | async" routerLink="products" class="btn">
         <i style="font-size: 40px" class="fas fa-shipping-fast">&nbsp; </i>
       </button>
       <button
-        *ngIf="!isLogged"
+        *ngIf="!(isLoggedIn$ | async)"
         (click)="emptyCart()"
         routerLink="products"
         class="btn"
@@ -27,7 +27,7 @@
     </div>
 
     <div class="mini-navbar-nowrap">
-      <div class="mini-navbar" *ngIf="!isLogged">
+      <div class="mini-navbar" *ngIf="!(isLoggedIn$ | async)">
         <ul>
           <li>
             <a routerLink="/login">Login</a>
@@ -37,21 +37,41 @@
           </li>
         </ul>
       </div>
-      <div class="mini-navbar" *ngIf="isLogged">
+      <div class="mini-navbar" *ngIf="isLoggedIn$ | async">
         <ul>
           <li>
-            <a routerLink="/profile">{{ currentUser.username }}</a>
+            <a routerLink="/profile"
+              >{{ (currentUser$ | async).username }}'s Profile</a
+            >
           </li>
           <li>
-            <a href="#" (click)="logoutHandler()">Logout</a>
+            <a
+              href="javascript:void(0);"
+              (click)="emptyCart()"
+              (click)="logoutHandler()"
+              >Logout</a
+            >
           </li>
         </ul>
       </div>
     </div>
-
+    <p
+      *ngIf="message"
+      [ngClass]="{
+        'error-message': isMessageError,
+        'success-message': !isMessageError
+      }"
+      class="notification error-message"
+    >
+      {{ message }}
+    </p>
     <button routerLink="cart" class="btn">
       <i style="font-size: 40px" class="fas fa-cart-plus"></i>
-      <div *ngIf="isLogged" style="font-size: 10px" class="badge bg-danger">
+      <div
+        *ngIf="isLoggedIn$ | async"
+        style="font-size: 10px"
+        class="badge bg-danger"
+      >
         {{ totalItem }}
       </div>
     </button>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
+import { AuthService } from 'src/app/core/service/auth.service';
 import { CartService } from 'src/app/core/service/cart.service';
 import { UserService } from 'src/app/core/service/user.service';
 
@@ -11,13 +13,11 @@ export class CartComponent implements OnInit {
   public products: any = [];
   public grandTotal!: number;
 
-  get isLogged(): boolean {
-    return this.userService.isLogged;
-  }
+  isLoggedIn$: Observable<boolean> = this.authService.isLoggedIn$;
 
   constructor(
     private cartService: CartService,
-    private userService: UserService
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
