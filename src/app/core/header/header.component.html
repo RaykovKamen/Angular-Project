@@ -65,15 +65,19 @@
     >
       {{ message }}
     </p>
-    <button routerLink="cart" class="btn">
+    <button *ngIf="isLoggedIn$ | async" routerLink="cart" class="btn">
       <i style="font-size: 40px" class="fas fa-cart-plus"></i>
-      <div
-        *ngIf="isLoggedIn$ | async"
-        style="font-size: 10px"
-        class="badge bg-danger"
-      >
+      <div style="font-size: 10px" class="badge bg-danger">
         {{ totalItem }}
       </div>
+    </button>
+    <button
+      *ngIf="!(isLoggedIn$ | async)"
+      (click)="emptyCart()"
+      routerLink="cart"
+      class="btn"
+    >
+      <i style="font-size: 40px" class="fas fa-cart-plus">&nbsp; </i>
     </button>
   </div>
 </header>

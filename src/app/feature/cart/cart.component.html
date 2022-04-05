@@ -1,4 +1,9 @@
-<ng-container *ngIf="products.length != 0">
+<ng-container
+  *ngIf="
+    (products.length != 0 && isLoggedIn$ | async) ||
+    (products.length == 1 && !(isLoggedIn$ | async))
+  "
+>
   <div class="container">
     <div class="card-table">
       <div class="cart-product">
@@ -53,10 +58,7 @@
                 </button>
               </td>
               <td>
-                <button               
-                  class="btn btn-success"
-                  routerLink="/transaction"
-                >
+                <button class="btn btn-success" routerLink="/transaction">
                   Checkout
                 </button>
               </td>
@@ -66,7 +68,7 @@
             </tr>
             <tr *ngIf="!(isLoggedIn$ | async)">
               <td colspan="1"></td>
-              <strong style="width: 12%">Login to add to cart</strong>
+              <td style="width: 12%"><strong>Login to add to cart</strong></td>
               <td>
                 <button routerLink="/login" class="btn btn-primary">
                   Login
@@ -83,6 +85,10 @@
       </div>
     </div>
   </div>
+</ng-container>
+
+<ng-container *ngIf="products.length > 1 && !(isLoggedIn$ | async)">
+  <span>Unknown error occurred! Please refresh page to try again!</span>
 </ng-container>
 
 <ng-container *ngIf="products.length == 0">

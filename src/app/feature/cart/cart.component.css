@@ -59,3 +59,11 @@ h6 {
 .center .btn:hover {
   background: rgb(0, 128, 182);
 }
+
+span {
+  font-weight: bold;
+  color: red;
+  position: absolute;
+  left: 35%;
+  top: 20%;
+}
