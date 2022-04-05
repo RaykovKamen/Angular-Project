@@ -16,7 +16,9 @@
         <p>Phone:</p>
         <p>{{ currentUser.tel }}</p>
       </div>
-      <button (click)="enterEditMode()" class="edit-button">Edit</button>
+      <button (click)="enterEditMode()" class="btn-primary edit-button">
+        Edit
+      </button>
     </ng-container>
 
     <ng-container *ngIf="isInEditMode">

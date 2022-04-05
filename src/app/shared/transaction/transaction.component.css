@@ -9,10 +9,11 @@
 }
 
 .transaction h3 {
-  background-color: #4ebced;
+  background-color: hsla(205, 46%, 30%, 1);
   border-radius: 0.3em;
   width: 100%;
   padding: 0.3em 1em;
+  color: white;
 }
 
 .transaction p {
@@ -25,7 +26,7 @@
 .transaction a {
   color: white;
   text-decoration: none;
-  background-color: #4ebced;
+  background-color: hsla(205, 46%, 30%, 1);
   border: none;
   border-radius: 0.3em;
   padding: 0.5em 5.2em;

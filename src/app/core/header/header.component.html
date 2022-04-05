@@ -2,7 +2,9 @@
   <div class="navbar navbar-dark shadow-sm">
     <div class="navbar-brand align-item-center d-flex">
       <button *ngIf="isLoggedIn$ | async" routerLink="products" class="btn">
-        <i style="font-size: 40px" class="fas fa-shipping-fast">&nbsp; </i>
+        <i style="font-size: 40px" class="fas fa-shipping-fast text-light"
+          >&nbsp;
+        </i>
       </button>
       <button
         *ngIf="!(isLoggedIn$ | async)"
@@ -10,7 +12,9 @@
         routerLink="products"
         class="btn"
       >
-        <i style="font-size: 40px" class="fas fa-shipping-fast">&nbsp; </i>
+        <i style="font-size: 40px" class="fas fa-shipping-fast text-light"
+          >&nbsp;
+        </i>
       </button>
 
       <strong class="logo-wrap" style="font-size: 30px">E-SHOP</strong>
@@ -66,7 +70,7 @@
       {{ message }}
     </p>
     <button *ngIf="isLoggedIn$ | async" routerLink="cart" class="btn">
-      <i style="font-size: 40px" class="fas fa-cart-plus"></i>
+      <i style="font-size: 40px" class="fas fa-cart-plus text-light"></i>
       <div style="font-size: 10px" class="badge bg-danger">
         {{ totalItem }}
       </div>
@@ -77,7 +81,7 @@
       routerLink="cart"
       class="btn"
     >
-      <i style="font-size: 40px" class="fas fa-cart-plus">&nbsp; </i>
+      <i style="font-size: 40px" class="fas fa-cart-plus text-light">&nbsp; </i>
     </button>
   </div>
 </header>

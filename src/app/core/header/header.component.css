@@ -17,12 +17,11 @@ strong {
 }
 
 header {
-  background: rgb(0, 128, 182);
+  background: hsla(205, 46%, 30%, 1);
   background: linear-gradient(
-    0deg,
-    rgba(0, 128, 182, 1) 0%,
-    rgba(0, 128, 182, 1) 35%,
-    rgba(0, 212, 255, 1) 100%
+    90deg,
+    hsla(205, 46%, 30%, 1) 0%,
+    hsla(260, 29%, 36%, 1) 100%
   );
   padding-left: 20px;
   padding-right: 20px;
@@ -42,7 +41,7 @@ header ul span {
 }
 
 .mini-navbar ul {
-  border: 1px solid #00d4ff;
+  border: 1px solid white;
   border-radius: 0.3em;
   padding-left: 0;
   width: 100%;
@@ -84,7 +83,7 @@ nav {
 }
 
 .mini-navbar ul {
-  background-color: #6ba1b8;
+  background-color: hsla(205, 46%, 30%, 1);
   border-radius: 5px;
 }
 
