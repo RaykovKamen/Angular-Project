@@ -1,7 +1,7 @@
 <ng-container *ngIf="products.length != 0">
-  <div class="success">
-    <h3>Confirm!</h3>
-    <p>Confirm your order!</p>
+  <div class="transaction">
+    <h3>Confirm your order!</h3>
+    <p>We will contact you within 24 hours!</p>
     <ul>
       <a routerLink="/products" (click)="emptyCart()">
         <i class="fas fa-check"></i>
@@ -11,7 +11,7 @@
   </div>
 </ng-container>
 <ng-container *ngIf="products.length == 0">
-  <div class="success">
+  <div class="transaction">
     <h3>Failed!</h3>
     <p>Transaction failed you were not charged!</p>
     <ul>

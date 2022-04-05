@@ -1,4 +1,4 @@
-.success {
+.transaction {
   padding: 0.3em 0.5em;
   border: 1px solid #999;
   border-radius: 0.3em;
@@ -8,21 +8,21 @@
   margin-right: 10px;
 }
 
-.success h3 {
+.transaction h3 {
   background-color: #4ebced;
   border-radius: 0.3em;
   width: 100%;
   padding: 0.3em 1em;
 }
 
-.success p {
+.transaction p {
   padding: 1em;
   border-bottom: 1px solid #999;
   font-style: normal;
   text-align: center;
 }
 
-.success a {
+.transaction a {
   color: white;
   text-decoration: none;
   background-color: #4ebced;
@@ -32,7 +32,7 @@
   margin: 1em;
 }
 
-.success ul {
+.transaction ul {
   display: flex;
   justify-content: space-evenly;
   padding: 0;
