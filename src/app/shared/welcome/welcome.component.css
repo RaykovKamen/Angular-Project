@@ -48,3 +48,9 @@
 .welcome li {
   list-style: none;
 }
+
+.easter-egg {
+  color: white;
+  position: absolute;
+  top: 91%;
+}
